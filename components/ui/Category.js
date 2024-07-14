@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
 
     // iOS Shadow
     shadowColor: 'black',
-    shadowOffset: { width: 2, height: 4 },
-    shadowOpacity: 0.5,
+    shadowOffset: { width: 2, height: 3 },
+    shadowOpacity: 0.2,
   },
   categoryPressable: {
     flex: 1,

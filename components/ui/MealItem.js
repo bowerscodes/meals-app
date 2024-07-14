@@ -37,7 +37,7 @@ export default MealItem;
 styles = StyleSheet.create({
   mealContainer: {
     width: '100%',
-    height: 150,
+    height: 175,
     marginBottom: 15,
 
   },
@@ -73,7 +73,7 @@ styles = StyleSheet.create({
   contentShadow: {
 
     // Android Shadow
-    elevation: 2,
+    elevation: 1,
 
     // iOS Shadow
     shadowColor: 'black',
