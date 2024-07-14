@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 
 // Local imports
 import { MEALS } from "../data/dummy-data";
-import MealItem from "../components/MealItem";
+import MealItem from "../components/ui/MealItem";
 
 const MealsOverview = ({ route }) => {
 
@@ -14,14 +14,16 @@ const MealsOverview = ({ route }) => {
   })
 
   const renderMealItem = (itemData) => {
+    const item = itemData.item;
+    const mealItemProps = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      affordability: item.affordability,
+      complexity: item.complexity,
+      duration: item.duration,
+    }
     return (
-      <MealItem 
-        title={itemData.item.title}
-        affordability={itemData.item.affordability}
-        complexity={itemData.item.complexity}
-        image={itemData.item.imageUrl}
-        duration={itemData.item.duration}
-      />
+      <MealItem {...mealItemProps} />
     );
   };
 
