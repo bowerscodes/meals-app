@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 // Local Imports
 import MealItemStats from './MealItemStats';
+import styleGuide from '../../styles';
 
 
 const MealItem = ({ id, title, imageUrl, affordability, complexity, duration }) => {
@@ -24,7 +25,7 @@ const MealItem = ({ id, title, imageUrl, affordability, complexity, duration }) 
   };
 
   return (
-    <View style={[styles.mealContainer, styles.contentShadow]}>
+    <View style={[styles.mealContainer, styleGuide.shadow]}>
       <Pressable
         onPress={handleMealItemPress}
       >
@@ -35,7 +36,7 @@ const MealItem = ({ id, title, imageUrl, affordability, complexity, duration }) 
           style={styles.mealImage}
         >
           <View style={styles.mealContentContainer}>
-            <Text style={[styles.mealTitle, styles.contentShadow]}>{title}</Text>
+            <Text style={[styles.mealTitle, styleGuide.shadow]}>{title}</Text>
             <MealItemStats {...mealStats} color='white' />
           </View>
         </ImageBackground>

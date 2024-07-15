@@ -1,10 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+const shadow = {
+
+}
+
 export default styleGuide = StyleSheet.create({
   appWrapper: {
-    backgroundColor: 'lightgray',
     flex: 1,
-    padding: 16,
+    padding: 10,
+    shadow
   },
   title: {
     fontSize: 24,
@@ -22,5 +26,14 @@ export default styleGuide = StyleSheet.create({
   },
   container: {
     marginBottom: 16
+  },
+  shadow: {
+    // Android Shadow
+    elevation: 3,
+    
+    // iOS Shadow
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.4,
   }
 });

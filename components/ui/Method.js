@@ -15,7 +15,7 @@ const Method = ({ steps }) => {
         return (
           <View style={styles.stepContainer} key={stepNumber}>
             <Text style={styles.stepNumber}>{stepNumber}.</Text>
-            <Text style={[styleGuide.body, {marginLeft: 8}]}>{step}</Text>
+            <Text style={[styleGuide.body, styles.stepText]}>{step}</Text>
           </View>
         );
       })}
@@ -33,5 +33,9 @@ const styles = StyleSheet.create({
   stepNumber: {
     fontSize: 14,
     fontWeight: 'bold',
-  }
+  },
+  stepText: {
+    marginLeft: 8,
+    width: '94%'
+  },
 });

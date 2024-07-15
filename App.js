@@ -1,6 +1,6 @@
 // Global imports
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -16,7 +16,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
-      <NavigationContainer>
+      <NavigationContainer
+        theme={{colors: {background: 'lightgray'}}}
+      >
         <Stack.Navigator initialRouteName='CategorySelect'>
           <Stack.Screen 
             name='CategorySelect' 

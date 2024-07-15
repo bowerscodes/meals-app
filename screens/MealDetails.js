@@ -27,29 +27,33 @@ const MealDetails = ({ route }) => {
     isLactoseFree 
   } = selectedMeal;
  
+  const mealItemStats = {
+    affordability: affordability,
+    complexity: complexity,
+    duration: duration,
+    dietary: [isGlutenFree, isVegan, isVegetarian, isLactoseFree],
+  };
+
   return (
-    <View style={styleGuide.appWrapper}>
-        <ScrollView>
-            <Image
-              source={{ uri: imageUrl }} 
-              style={styles.mealImage} 
-            />
-      <View style={styles.mealDetailsContainer}>
+    <ScrollView>
+      <View style={styleGuide.appWrapper}>
+        <Image
+          source={{ uri: imageUrl }} 
+          style={[styles.mealImage, styleGuide.shadow]} 
+        />
+        <View style={[styles.mealDetailsContainer, styleGuide.shadow]}>
           <View style={styleGuide.container}>
             <Text style={styleGuide.title}>{title}</Text>
             <MealItemStats 
-              affordability={affordability} 
-              complexity={complexity} 
-              duration={duration}
-              dietary={[isGlutenFree, isVegan, isVegetarian, isLactoseFree]}
+              {...mealItemStats}
               color='black' 
             />
           </View>
           <Ingredients ingredients={ingredients} />
           <Method steps={steps} />     
+        </View>
       </View>
-        </ScrollView>
-    </View>
+    </ScrollView>
   );
 };
 
