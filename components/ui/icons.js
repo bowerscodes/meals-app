@@ -4,20 +4,21 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Entypo from '@expo/vector-icons/Entypo';
 
 
-export default icons = {
-  affordability: () => {
+export default icons = (icon, color='black') => {
+
+  if (icon === 'affordability') {
     return (
-      <FontAwesome name='money' size={24} color='white' />
+      <FontAwesome name='money' size={24} color={color} />
     );
-  },
-  complexity: () => {
+  } 
+  if (icon === 'complexity') {
     return (
-      <Entypo name='bar-graph' size={20} color='white' />
+      <Entypo name='bar-graph' size={20} color={color} />
     );
-  },
-  duration: () => {
+  }
+  if (icon === 'duration') {
     return (
-      <MaterialIcons name='access-time' size={24} color='white' />
+      <MaterialIcons name='access-time' size={24} color={color} />
     );
-  },
+  }
 }

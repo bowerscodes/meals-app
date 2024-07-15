@@ -1,31 +1,43 @@
 // Global Imports
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // Local Imports
-import icons from './icons';
+import MealItemStats from './MealItemStats';
 
 
-const MealItem = ({ title, imageUrl, affordability, complexity, duration }) => {
+const MealItem = ({ id, title, imageUrl, affordability, complexity, duration }) => {
+
+  const navigation = useNavigation();
+
+  const handleMealItemPress = () => {
+    navigation.navigate('MealDetails', { 
+      mealId: id,
+     });
+  };
+
+  const mealStats = {
+    affordability: affordability,
+    complexity: complexity,
+    duration: duration,
+    color: 'white',
+  };
+
   return (
     <View style={[styles.mealContainer, styles.contentShadow]}>
-      <Pressable>
+      <Pressable
+        onPress={handleMealItemPress}
+      >
         <ImageBackground
           source={{ uri: imageUrl }}
           resizeMode='cover'
           imageStyle={{ borderRadius: 6 }}
           style={styles.mealImage}
         >
-            <View style={styles.mealContentContainer}>
-              <Text style={[styles.mealTitle, styles.contentShadow]}>{title}</Text>
-              <View style={[styles.mealContent, styles.contentShadow]}>
-                {icons.affordability()}
-                <Text style={styles.mealText}>{affordability}</Text>
-                {icons.complexity()}
-                <Text style={styles.mealText}>{complexity}</Text>
-                {icons.duration()}
-                <Text style={styles.mealText}>{duration} mins</Text>
-              </View>
-            </View>
+          <View style={styles.mealContentContainer}>
+            <Text style={[styles.mealTitle, styles.contentShadow]}>{title}</Text>
+            <MealItemStats {...mealStats} color='white' />
+          </View>
         </ImageBackground>
       </Pressable>
     </View>
@@ -77,7 +89,7 @@ styles = StyleSheet.create({
 
     // iOS Shadow
     shadowColor: 'black',
-    shadowOffset: { width: 5, height: 3 },
+    shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.4,
   },
 });

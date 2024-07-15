@@ -14,9 +14,10 @@ const MealsOverview = ({ route, navigation }) => {
     return meal.categoryIds.includes(categoryId);
   });
 
+  // useLayoutEffect is used to update the title of the screen, and circumvent the delay in rendering the title text
   useLayoutEffect(() => {
     const categoryTitle = CATEGORIES.find((category) => category.id === categoryId).title;
-  
+
     navigation.setOptions({
       title: categoryTitle,
     });
@@ -25,6 +26,7 @@ const MealsOverview = ({ route, navigation }) => {
   const renderMealItem = (itemData) => {
     const item = itemData.item;
     const mealItemProps = {
+      id: item.id,
       title: item.title,
       imageUrl: item.imageUrl,
       affordability: item.affordability,
