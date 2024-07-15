@@ -10,15 +10,25 @@ export default icons = (icon, color='black') => {
     return (
       <FontAwesome name='money' size={24} color={color} />
     );
-  } 
+  } ;
   if (icon === 'complexity') {
     return (
       <Entypo name='bar-graph' size={20} color={color} />
     );
-  }
+  };
   if (icon === 'duration') {
     return (
       <MaterialIcons name='access-time' size={24} color={color} />
     );
-  }
+  };
+  if (icon === 'favourite') {
+    return (
+      <MaterialIcons name="favorite-outline" size={24} color={color} />
+    );
+  };
+  if (icon === 'favourited') {
+    return (
+      <MaterialIcons name="favorite" size={24} color={color} />
+    );
+  };
 }

@@ -1,4 +1,5 @@
 // Global imports
+import { useLayoutEffect } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 // Local imports
@@ -7,12 +8,14 @@ import MealItemStats from '../components/ui/MealItemStats';
 import Ingredients from '../components/ui/Ingredients';
 import Method from '../components/ui/Method';
 import styleGuide from '../styles';
+import IconButton from '../components/ui/IconButton';
 
 
-const MealDetails = ({ route }) => {
+const MealDetails = ({ route, navigation }) => {
 
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId)
+
   const { 
     title, 
     imageUrl, 
@@ -34,6 +37,18 @@ const MealDetails = ({ route }) => {
     dietary: [isGlutenFree, isVegan, isVegetarian, isLactoseFree],
   };
 
+  const setFavouriteHandler = () => {
+    console.log('Favourited');
+  };
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <IconButton onPress={setFavouriteHandler} />
+      },
+    });
+  }, [navigation, setFavouriteHandler]);
+
   return (
     <ScrollView>
       <View style={styleGuide.appWrapper}>
@@ -46,7 +61,6 @@ const MealDetails = ({ route }) => {
             <Text style={styleGuide.title}>{title}</Text>
             <MealItemStats 
               {...mealItemStats}
-              color='black' 
             />
           </View>
           <Ingredients ingredients={ingredients} />

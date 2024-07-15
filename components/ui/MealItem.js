@@ -83,14 +83,4 @@ styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 5,
   },
-  contentShadow: {
-
-    // Android Shadow
-    elevation: 1,
-
-    // iOS Shadow
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.4,
-  },
 });
