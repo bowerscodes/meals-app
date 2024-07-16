@@ -5,11 +5,11 @@ import { Pressable } from 'react-native';
 import icons from './icons';
 
 
-const IconButton = ({ onPress }) => {
+const IconButton = ({ icon, onPress }) => {
 
   return (
     <Pressable onPress={onPress}>
-      {icons('favourite')}
+      {icons(icon)}
     </Pressable>
   );
 };

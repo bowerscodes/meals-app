@@ -21,12 +21,12 @@ export default icons = (icon, color='black') => {
       <MaterialIcons name='access-time' size={24} color={color} />
     );
   };
-  if (icon === 'favourite') {
+  if (icon === 'favourite-outline') {
     return (
       <MaterialIcons name="favorite-outline" size={24} color={color} />
     );
   };
-  if (icon === 'favourited') {
+  if (icon === 'favourite') {
     return (
       <MaterialIcons name="favorite" size={24} color={color} />
     );

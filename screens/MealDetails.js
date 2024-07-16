@@ -1,9 +1,10 @@
 // Global imports
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useContext } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 // Local imports
 import { MEALS } from '../data/dummy-data';
+import { FavouritesContext } from '../store/context/favourites-context';
 import MealItemStats from '../components/ui/MealItemStats';
 import Ingredients from '../components/ui/Ingredients';
 import Method from '../components/ui/Method';
@@ -12,9 +13,14 @@ import IconButton from '../components/ui/IconButton';
 
 
 const MealDetails = ({ route, navigation }) => {
+  console.log(FavouritesContext);
+
+  const favouriteMealsContext = useContext(FavouritesContext);
 
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId)
+
+  const mealIsFavourite = favouriteMealsContext.ids.includes(mealId);
 
   const { 
     title, 
@@ -38,7 +44,12 @@ const MealDetails = ({ route, navigation }) => {
   };
 
   const setFavouriteHandler = () => {
-    console.log('Favourited');
+    if (mealIsFavourite) {
+      favouriteMealsContext.removeFavourite(mealId);
+    }
+    else {
+      favouriteMealsContext.addFavourite(mealId);
+    }
   };
 
   useLayoutEffect(() => {
@@ -50,11 +61,11 @@ const MealDetails = ({ route, navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <IconButton onPress={setFavouriteHandler} />
+        return <IconButton icon={mealIsFavourite ? 'favourite' : 'favourite-outline'} onPress={setFavouriteHandler} />
       },
     });
   }, [navigation, setFavouriteHandler]);
-  
+
 
   return (
     <ScrollView>
