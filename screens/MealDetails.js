@@ -43,11 +43,18 @@ const MealDetails = ({ route, navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      title: title,
+    });
+  }, [title, navigation]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
       headerRight: () => {
         return <IconButton onPress={setFavouriteHandler} />
       },
     });
   }, [navigation, setFavouriteHandler]);
+  
 
   return (
     <ScrollView>

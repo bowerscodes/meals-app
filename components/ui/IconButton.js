@@ -11,7 +11,7 @@ const IconButton = ({ onPress }) => {
     <Pressable onPress={onPress}>
       {icons('favourite')}
     </Pressable>
-  )
+  );
 };
 
 export default IconButton;
