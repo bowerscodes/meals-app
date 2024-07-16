@@ -13,7 +13,6 @@ import IconButton from '../components/ui/IconButton';
 
 
 const MealDetails = ({ route, navigation }) => {
-  console.log(FavouritesContext);
 
   const favouriteMealsContext = useContext(FavouritesContext);
 
