@@ -3,7 +3,7 @@ import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native
 import { useNavigation } from '@react-navigation/native';
 
 // Local Imports
-import MealItemStats from './MealItemStats';
+import MealItemStats from '../Meal/MealItemStats';
 import styleGuide from '../../styles';
 
 

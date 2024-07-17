@@ -1,6 +1,5 @@
 // Global imports
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -34,17 +33,13 @@ const DrawerNavigator = () => {
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <>
       <StatusBar style='auto' />
       <FavouritesContextProvider>
-        <NavigationContainer
-          // theme={{colors: {background: 'lightgray'}}}
-        >
-          <Stack.Navigator 
-            // initialRouteName='CategorySelect'
-          >
+        <NavigationContainer>
+          <Stack.Navigator>
             <Stack.Screen
-              name='Drawer'
+              name='Categories'
               component={DrawerNavigator} 
               options={{
                 headerShown: false
@@ -62,16 +57,13 @@ export default function App() {
             <Stack.Screen 
               name='MealDetails' 
               component={MealDetails}
+              options={{
+                headerBackTitle:'Back'
+              }}
             />
           </Stack.Navigator>
         </NavigationContainer>
       </FavouritesContextProvider>
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

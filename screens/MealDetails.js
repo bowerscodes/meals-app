@@ -5,9 +5,9 @@ import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 // Local imports
 import { MEALS } from '../data/dummy-data';
 import { FavouritesContext } from '../store/context/favourites-context';
-import MealItemStats from '../components/ui/MealItemStats';
-import Ingredients from '../components/ui/Ingredients';
-import Method from '../components/ui/Method';
+import MealItemStats from '../components/Meal/MealItemStats';
+import Ingredients from '../components/Meal/Ingredients';
+import Method from '../components/Meal/Method';
 import styleGuide from '../styles';
 import IconButton from '../components/ui/IconButton';
 

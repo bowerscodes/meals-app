@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 // Local Imports
-import icons from './icons';
+import icons from '../ui/icons';
 import styleGuide from '../../styles';
 
 const MealItemStats = ({ affordability, complexity, duration, dietary, color }) => {
